@@ -1,7 +1,31 @@
+import enum
 from datetime import datetime
 from flask_wtf import Form
 from wtforms import StringField, SelectField, SelectMultipleField, DateTimeField, BooleanField
 from wtforms.validators import DataRequired, AnyOf, URL
+
+
+class Genre(enum.Enum):
+    ALTERNATIVE = 'Alternative'
+    BLUES = 'Blues'
+    CLASSICAL = 'Classical'
+    COUNTRY = 'Country'
+    ELECTRONIC = 'Electronic'
+    FOLK = 'Folk'
+    FUNK = 'Funk'
+    HIP_HOP = 'Hip-Hop'
+    HEAVY_METAL = 'Heavy Metal'
+    INSTRUMENTAL = 'Instrumental'
+    JAZZ = 'Jazz'
+    MUSICAL_THEATRE = 'Musical Theatre'
+    POP = 'Pop'
+    PUNK = 'Punk'
+    R_N_B = 'R&B'
+    REGGAE = 'Reggae'
+    ROCK_N_ROLL = 'Rock n Roll'
+    SOUL = 'Soul'
+    OTHER = 'Other'
+
 
 class ShowForm(Form):
     artist_id = StringField(
@@ -89,28 +113,27 @@ class VenueForm(Form):
         'image_link'
     )
     genres = SelectMultipleField(
-        # TODO implement enum restriction
         'genres', validators=[DataRequired()],
         choices=[
-            ('Alternative', 'Alternative'),
-            ('Blues', 'Blues'),
-            ('Classical', 'Classical'),
-            ('Country', 'Country'),
-            ('Electronic', 'Electronic'),
-            ('Folk', 'Folk'),
-            ('Funk', 'Funk'),
-            ('Hip-Hop', 'Hip-Hop'),
-            ('Heavy Metal', 'Heavy Metal'),
-            ('Instrumental', 'Instrumental'),
-            ('Jazz', 'Jazz'),
-            ('Musical Theatre', 'Musical Theatre'),
-            ('Pop', 'Pop'),
-            ('Punk', 'Punk'),
-            ('R&B', 'R&B'),
-            ('Reggae', 'Reggae'),
-            ('Rock n Roll', 'Rock n Roll'),
-            ('Soul', 'Soul'),
-            ('Other', 'Other'),
+            (Genre.ALTERNATIVE.name, Genre.ALTERNATIVE.value),
+            (Genre.BLUES.name, Genre.BLUES.value),
+            (Genre.CLASSICAL.name, Genre.CLASSICAL.value),
+            (Genre.COUNTRY.name, Genre.COUNTRY.value),
+            (Genre.ELECTRONIC.name, Genre.ELECTRONIC.value),
+            (Genre.FOLK.name, Genre.FOLK.value),
+            (Genre.FUNK.name, Genre.FUNK.value),
+            (Genre.HIP_HOP.name, Genre.HIP_HOP.value),
+            (Genre.HEAVY_METAL.name, Genre.HEAVY_METAL.value),
+            (Genre.INSTRUMENTAL.name, Genre.INSTRUMENTAL.value),
+            (Genre.JAZZ.name, Genre.JAZZ.value),
+            (Genre.MUSICAL_THEATRE.name, Genre.MUSICAL_THEATRE.value),
+            (Genre.POP.name, Genre.POP.value),
+            (Genre.PUNK.name, Genre.PUNK.value),
+            (Genre.R_N_B.name, Genre.R_N_B.value),
+            (Genre.REGGAE.name, Genre.REGGAE.value),
+            (Genre.ROCK_N_ROLL.name, Genre.ROCK_N_ROLL.value),
+            (Genre.SOUL.name, Genre.SOUL.value),
+            (Genre.OTHER.name, Genre.OTHER.value)
         ]
     )
     facebook_link = StringField(
@@ -201,29 +224,28 @@ class ArtistForm(Form):
     genres = SelectMultipleField(
         'genres', validators=[DataRequired()],
         choices=[
-            ('Alternative', 'Alternative'),
-            ('Blues', 'Blues'),
-            ('Classical', 'Classical'),
-            ('Country', 'Country'),
-            ('Electronic', 'Electronic'),
-            ('Folk', 'Folk'),
-            ('Funk', 'Funk'),
-            ('Hip-Hop', 'Hip-Hop'),
-            ('Heavy Metal', 'Heavy Metal'),
-            ('Instrumental', 'Instrumental'),
-            ('Jazz', 'Jazz'),
-            ('Musical Theatre', 'Musical Theatre'),
-            ('Pop', 'Pop'),
-            ('Punk', 'Punk'),
-            ('R&B', 'R&B'),
-            ('Reggae', 'Reggae'),
-            ('Rock n Roll', 'Rock n Roll'),
-            ('Soul', 'Soul'),
-            ('Other', 'Other'),
+            (Genre.ALTERNATIVE.name, Genre.ALTERNATIVE.value),
+            (Genre.BLUES.name, Genre.BLUES.value),
+            (Genre.CLASSICAL.name, Genre.CLASSICAL.value),
+            (Genre.COUNTRY.name, Genre.COUNTRY.value),
+            (Genre.ELECTRONIC.name, Genre.ELECTRONIC.value),
+            (Genre.FOLK.name, Genre.FOLK.value),
+            (Genre.FUNK.name, Genre.FUNK.value),
+            (Genre.HIP_HOP.name, Genre.HIP_HOP.value),
+            (Genre.HEAVY_METAL.name, Genre.HEAVY_METAL.value),
+            (Genre.INSTRUMENTAL.name, Genre.INSTRUMENTAL.value),
+            (Genre.JAZZ.name, Genre.JAZZ.value),
+            (Genre.MUSICAL_THEATRE.name, Genre.MUSICAL_THEATRE.value),
+            (Genre.POP.name, Genre.POP.value),
+            (Genre.PUNK.name, Genre.PUNK.value),
+            (Genre.R_N_B.name, Genre.R_N_B.value),
+            (Genre.REGGAE.name, Genre.REGGAE.value),
+            (Genre.ROCK_N_ROLL.name, Genre.ROCK_N_ROLL.value),
+            (Genre.SOUL.name, Genre.SOUL.value),
+            (Genre.OTHER.name, Genre.OTHER.value)
         ]
      )
     facebook_link = StringField(
-        # TODO implement enum restriction
         'facebook_link', validators=[URL()]
      )
 
@@ -236,4 +258,3 @@ class ArtistForm(Form):
     seeking_description = StringField(
             'seeking_description'
      )
-
